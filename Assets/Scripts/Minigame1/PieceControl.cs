@@ -76,7 +76,7 @@ public class PieceControl : MonoBehaviour
         }
     }
 
-    public int GetNumber(string temp)
+    int GetNumber(string temp)
     {
         int result;
 

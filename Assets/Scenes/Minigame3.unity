@@ -2560,9 +2560,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cardstate: 00000000000000000000000000000000
-  isreversed: 0
   flipedcard0: 0
   flipedcard1: 0
+  isfliped0: 0
+  isfliped1: 0
 --- !u!4 &1087830644
 Transform:
   m_ObjectHideFlags: 0

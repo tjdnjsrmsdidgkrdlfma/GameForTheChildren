@@ -16,6 +16,7 @@ public class GameManager_3 : MonoBehaviour
 
     void Start()
     {
+        cardstate = Enumerable.Repeat(false, 16).ToArray();
         SetValue();
         SetCardImages();
     }
@@ -24,15 +25,15 @@ public class GameManager_3 : MonoBehaviour
     {
         if (isfliped0 == true && isfliped1 == true)
         {
-            DoSomething(CheckCorrect());
+            DoSomething();
+            CheckGameCorrect();
         }
     }
 
     void SetValue()
     {
-        cardstate = Enumerable.Repeat(false, 16).ToArray();
-        flipedcard0 = 0;
-        flipedcard1 = 0;
+        flipedcard0 = -1;
+        flipedcard1 = -1;
         isfliped0 = false;
         isfliped1 = false;
         return;
@@ -41,17 +42,20 @@ public class GameManager_3 : MonoBehaviour
     void SetCardImages()
     {
         int i;
-        int random = 0;
+        int random;
         int[] temp = new int[8];
 
-        temp = Enumerable.Repeat(0, 8).ToArray();
+        for (i = 0; i < 8; i++)
+        {
+            temp[i] = 0;
+        }
 
         for (i = 0; i < 16; i++)
         {
-            while (temp[random] >= 2)
+            do
             {
                 random = UnityEngine.Random.Range(0, 8);
-            }
+            } while (temp[random] >= 2);
             GameObject.Find("Card (" + i + ")").transform.Find("Back").GetComponent<MeshRenderer>().material = Resources.Load("Minigame3/Materials/" + random) as Material;
             temp[random]++;
         }
@@ -59,11 +63,40 @@ public class GameManager_3 : MonoBehaviour
         return;
     }
 
-    bool CheckCorrect()
+    void DoSomething()
+    {
+        if (CheckCardCorrect() == true)
+        {
+            if (GameObject.Find("Card (" + flipedcard0 + ")").GetComponent<CardControl>().isrotating == false && GameObject.Find("Card (" + flipedcard1 + ")").GetComponent<CardControl>().isrotating == false)
+            {
+                Destroy(GameObject.Find("Card (" + flipedcard0 + ")").GetComponent<CardControl>());
+                Destroy(GameObject.Find("Card (" + flipedcard1 + ")").GetComponent<CardControl>());
+                cardstate[flipedcard0] = true;
+                cardstate[flipedcard1] = true;
+            }
+        }
+        else
+        {
+            GameObject.Find("Card (" + flipedcard0 + ")").GetComponent<CardControl>().enabled = true;
+            GameObject.Find("Card (" + flipedcard1 + ")").GetComponent<CardControl>().enabled = true;
+        }
+
+        SetValue();
+
+        return;
+    }
+
+    bool CheckCardCorrect()
     {
         int first, second;
-        first = Convert.ToInt32(GameObject.Find("Card (" + flipedcard0 + ")").transform.Find("Back").GetComponent<MeshRenderer>().material);
-        second = Convert.ToInt32(GameObject.Find("Card (" + flipedcard1 + ")").transform.Find("Back").GetComponent<MeshRenderer>().material);
+        string first_, second_;
+        first_ = Convert.ToString(GameObject.Find("Card (" + flipedcard0 + ")").transform.Find("Back").GetComponent<MeshRenderer>().material.name);
+        second_ = Convert.ToString(GameObject.Find("Card (" + flipedcard1 + ")").transform.Find("Back").GetComponent<MeshRenderer>().material.name);
+
+        first = first_[0] - '0';
+        second = second_[0] - '0';
+
+        Debug.Log(first + "_" + second);
 
         if (first == second)
         {
@@ -75,20 +108,12 @@ public class GameManager_3 : MonoBehaviour
         }
     }
 
-    void DoSomething(bool correct)
+    void CheckGameCorrect()
     {
-        if (correct == true)
+        if (!cardstate.Contains(false))
         {
-            GameObject.Find("Card (" + flipedcard0 + ")").GetComponent<CardControl>().enabled = false;
-            GameObject.Find("Card (" + flipedcard1 + ")").GetComponent<CardControl>().enabled = false;
-            cardstate[flipedcard0] = true;
-            cardstate[flipedcard1] = true;
+            Debug.Log("GGWP");
         }
-        else
-        {
-
-        }
-
         return;
     }
 }

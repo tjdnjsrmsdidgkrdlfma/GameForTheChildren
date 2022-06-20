@@ -17,6 +17,8 @@ public class MainEventManager : MonoBehaviour
     int looptime = 0;
     bool isend = true;
     public bool button0 = false, button1 = false, button2 = false;
+    bool isdelay = false;
+    float appearspeed = 0.05f;
 
     void Start()
     {
@@ -25,11 +27,37 @@ public class MainEventManager : MonoBehaviour
 
     void Update()
     {
+        if (looptime == maxlooptime && isdelay == false)
+        {
+            GameObject.Find("CorrectImage").GetComponent<RawImage>().enabled = true;
+            StartCoroutine(ShowCorrect());
+        }
         while (looptime < maxlooptime && isend)
         {
             Setting();
         }
         CheckFlag();
+    }
+
+    IEnumerator ShowCorrect()
+    {
+        isdelay = true;
+
+        GameObject gameobject = GameObject.Find("CorrectImage");
+        Color color = GameObject.Find("CorrectImage").GetComponent<RawImage>().color;
+
+        color.a += appearspeed;
+
+        gameobject.GetComponent<RawImage>().color = color;
+
+        if (color.a == 1)
+        {
+            yield break;
+        }
+
+        yield return null;
+
+        isdelay = false;
     }
 
     void Setting()
