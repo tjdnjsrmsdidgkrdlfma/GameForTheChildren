@@ -17,8 +17,11 @@ public class MainEventManager : MonoBehaviour
     int looptime = 0;
     bool isend = true;
     public bool button0 = false, button1 = false, button2 = false;
-    bool isdelay = false;
-    float appearspeed = 0.05f;
+    float appearspeed = 0.02f;
+    float delaytime = 1.5f;
+    bool isshown = false;
+    bool isdelay = true;
+    bool[] points = new bool[5] { false, false, false, false, false };
 
     void Start()
     {
@@ -27,10 +30,9 @@ public class MainEventManager : MonoBehaviour
 
     void Update()
     {
-        if (looptime == maxlooptime && isdelay == false)
+        if (looptime == maxlooptime)
         {
-            GameObject.Find("CorrectImage").GetComponent<RawImage>().enabled = true;
-            StartCoroutine(ShowCorrect());
+            Correct();
         }
         while (looptime < maxlooptime && isend)
         {
@@ -39,10 +41,29 @@ public class MainEventManager : MonoBehaviour
         CheckFlag();
     }
 
-    IEnumerator ShowCorrect()
+    void Correct()
     {
-        isdelay = true;
+        GameObject.Find("Point (" + (maxlooptime - 1) + ")").GetComponent<Image>().material = Resources.Load("Materials/PuzzlePiece") as Material;
 
+        GameObject.Find("CorrectImage").GetComponent<RawImage>().enabled = true;
+        if (isshown == false)
+        {
+            StartCoroutine(AppearCorrect());
+        }
+        else
+        {
+            StartCoroutine(AppearDelay());
+        }
+        if (isdelay == false)
+        {
+            StartCoroutine(DisappearCorrect());
+        }
+
+        return;
+    }
+
+    IEnumerator AppearCorrect()
+    {
         GameObject gameobject = GameObject.Find("CorrectImage");
         Color color = GameObject.Find("CorrectImage").GetComponent<RawImage>().color;
 
@@ -50,14 +71,53 @@ public class MainEventManager : MonoBehaviour
 
         gameobject.GetComponent<RawImage>().color = color;
 
-        if (color.a == 1)
+        if (color.a >= 1)
+        {
+            isshown = true;
+            yield break;
+        }
+
+        yield return null;
+    }
+
+    IEnumerator DisappearCorrect()
+    {
+        GameObject gameobject = GameObject.Find("CorrectImage");
+        Color color = GameObject.Find("CorrectImage").GetComponent<RawImage>().color;
+
+        color.a -= appearspeed;
+
+        gameobject.GetComponent<RawImage>().color = color;
+
+        if (color.a <= 0)
         {
             yield break;
         }
 
         yield return null;
+    }
 
+    IEnumerator AppearDelay()
+    {
+        yield return new WaitForSecondsRealtime(delaytime);
         isdelay = false;
+    }
+
+    void SetPoint()
+    {
+        int i;
+
+        for (i = 0; i < 5; i++)
+        {
+            if (points[i] == false)
+            {
+                GameObject.Find("Point (" + i + ")").GetComponent<Image>().material = Resources.Load("Materials/PuzzlePiece") as Material;
+                points[i] = true;
+                break;
+            }
+        }
+
+        return;
     }
 
     void Setting()
@@ -111,6 +171,11 @@ public class MainEventManager : MonoBehaviour
                     }
                 }
                 break;
+        }
+
+        if(looptime!=0)
+        {
+            SetPoint();
         }
 
         isend = false;

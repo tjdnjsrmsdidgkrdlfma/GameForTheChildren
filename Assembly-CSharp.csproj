@@ -64,6 +64,8 @@
     <Compile Include="Assets\Scripts\Minigame2\PieceControl_2.cs" />
     <Compile Include="Assets\Scripts\Minigame1\GameManager_1.cs" />
     <Compile Include="Assets\Scripts\Minigame2\GameManager_2.cs" />
+    <Compile Include="Assets\Scripts\ChooseGames\ControlButton.cs" />
+    <Compile Include="Assets\Scripts\Title\TitleButtons.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
