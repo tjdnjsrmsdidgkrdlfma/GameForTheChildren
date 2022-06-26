@@ -63,14 +63,16 @@
     <Compile Include="Assets\Scripts\Minigame3\CardControl.cs" />
     <Compile Include="Assets\Scripts\ChooseGames\ControlButton.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
+    <Compile Include="Assets\Scripts\Minigame5\ButtonControl_5.cs" />
     <Compile Include="Assets\Scripts\Minigame0\MainEventManager.cs" />
     <Compile Include="Assets\Scripts\Minigame2\PieceControl_2.cs" />
     <Compile Include="Assets\Scripts\Title\TitleButtons.cs" />
+    <Compile Include="Assets\Scripts\Minigame5\GameManager_5.cs" />
     <Compile Include="Assets\Scripts\Minigame1\GameManager_1.cs" />
     <Compile Include="Assets\Scripts\Minigame2\GameManager_2.cs" />
     <Compile Include="Assets\Scripts\Minigame4\GameManager_4.cs" />
-    <Compile Include="Assets\Scripts\Minigame5\GameManager_5.cs" />
-    <Compile Include="Assets\Scripts\Minigame5\ButtonControl_5.cs" />
+    <Compile Include="Assets\Scripts\Minigame6\GameManager_6.cs" />
+    <Compile Include="Assets\Scripts\Minigame6\MoveShadow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
