@@ -22,6 +22,11 @@ public class UI : MonoBehaviour
             GameObject.Find("Canvas").transform.Find("UI").gameObject.SetActive(true);
             Time.timeScale = 0;
         }
+        else if (string.Compare(this.gameObject.name, "TitleCancel") == 0)
+        {
+            GameObject.Find("Canvas").transform.Find("Credit").gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
         else if (string.Compare(this.gameObject.name, "Cancel") == 0)
         {
             GameObject.Find("Canvas").transform.Find("UI").gameObject.SetActive(false);
