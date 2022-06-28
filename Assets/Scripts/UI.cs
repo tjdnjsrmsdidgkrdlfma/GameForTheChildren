@@ -32,6 +32,11 @@ public class UI : MonoBehaviour
             SceneManager.LoadScene("ChooseGames");
             Time.timeScale = 1;
         }
+        else if (string.Compare(this.gameObject.name, "QuitToTitle") == 0)
+        {
+            SceneManager.LoadScene("Title");
+            Time.timeScale = 1;
+        }
 
         return;
     }
