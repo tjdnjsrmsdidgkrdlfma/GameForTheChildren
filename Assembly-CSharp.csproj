@@ -56,11 +56,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Minigame6\GameManager_6.cs" />
+    <Compile Include="Assets\Scripts\Minigame6\MoveShadow.cs" />
     <Compile Include="Assets\Scripts\Minigame0\ButtonControl.cs" />
+    <Compile Include="Assets\Scripts\End.cs" />
     <Compile Include="Assets\Scripts\Minigame1\PieceControl.cs" />
-    <Compile Include="Assets\Scripts\Minigame3\GameManager_3.cs" />
     <Compile Include="Assets\Scripts\Minigame4\MovePiece_4.cs" />
-    <Compile Include="Assets\Scripts\Minigame3\CardControl.cs" />
     <Compile Include="Assets\Scripts\ChooseGames\ControlButton.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Minigame5\ButtonControl_5.cs" />
@@ -68,11 +69,10 @@
     <Compile Include="Assets\Scripts\Minigame2\PieceControl_2.cs" />
     <Compile Include="Assets\Scripts\Title\TitleButtons.cs" />
     <Compile Include="Assets\Scripts\Minigame5\GameManager_5.cs" />
+    <Compile Include="Assets\Scripts\ChooseGames\LoadScenes.cs" />
     <Compile Include="Assets\Scripts\Minigame1\GameManager_1.cs" />
     <Compile Include="Assets\Scripts\Minigame2\GameManager_2.cs" />
     <Compile Include="Assets\Scripts\Minigame4\GameManager_4.cs" />
-    <Compile Include="Assets\Scripts\Minigame6\GameManager_6.cs" />
-    <Compile Include="Assets\Scripts\Minigame6\MoveShadow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

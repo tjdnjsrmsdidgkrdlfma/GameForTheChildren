@@ -22,7 +22,7 @@ public class GameManager_1 : MonoBehaviour
     {
         if (CheckPuzzle())
         {
-            Debug.Log("Correct");
+            this.GetComponent<End>().EndMessage();
         }
     }
 

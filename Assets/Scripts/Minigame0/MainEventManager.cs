@@ -17,10 +17,6 @@ public class MainEventManager : MonoBehaviour
     int looptime = 0;
     bool isend = true;
     public bool button0 = false, button1 = false, button2 = false;
-    float appearspeed = 0.02f;
-    float delaytime = 1.5f;
-    bool isshown = false;
-    bool isdelay = true;
     bool[] points = new bool[5] { false, false, false, false, false };
 
     void Start()
@@ -33,6 +29,7 @@ public class MainEventManager : MonoBehaviour
         if (looptime == maxlooptime)
         {
             Correct();
+            this.GetComponent<End>().EndMessage();
         }
         while (looptime < maxlooptime && isend)
         {
@@ -45,62 +42,7 @@ public class MainEventManager : MonoBehaviour
     {
         GameObject.Find("Point (" + (maxlooptime - 1) + ")").GetComponent<Image>().material = Resources.Load("Materials/PuzzlePiece") as Material;
 
-        GameObject.Find("CorrectImage").GetComponent<RawImage>().enabled = true;
-        if (isshown == false)
-        {
-            StartCoroutine(AppearCorrect());
-        }
-        else
-        {
-            StartCoroutine(AppearDelay());
-        }
-        if (isdelay == false)
-        {
-            StartCoroutine(DisappearCorrect());
-        }
-
         return;
-    }
-
-    IEnumerator AppearCorrect()
-    {
-        GameObject gameobject = GameObject.Find("CorrectImage");
-        Color color = GameObject.Find("CorrectImage").GetComponent<RawImage>().color;
-
-        color.a += appearspeed;
-
-        gameobject.GetComponent<RawImage>().color = color;
-
-        if (color.a >= 1)
-        {
-            isshown = true;
-            yield break;
-        }
-
-        yield return null;
-    }
-
-    IEnumerator DisappearCorrect()
-    {
-        GameObject gameobject = GameObject.Find("CorrectImage");
-        Color color = GameObject.Find("CorrectImage").GetComponent<RawImage>().color;
-
-        color.a -= appearspeed;
-
-        gameobject.GetComponent<RawImage>().color = color;
-
-        if (color.a <= 0)
-        {
-            yield break;
-        }
-
-        yield return null;
-    }
-
-    IEnumerator AppearDelay()
-    {
-        yield return new WaitForSecondsRealtime(delaytime);
-        isdelay = false;
     }
 
     void SetPoint()

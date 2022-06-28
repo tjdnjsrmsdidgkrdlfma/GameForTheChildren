@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
 
 public class MovePiece_4 : MonoBehaviour
@@ -9,6 +10,7 @@ public class MovePiece_4 : MonoBehaviour
     Vector3 mousePosition;
     bool isclick = false;
     GameManager_4 gamemanager;
+    float appearspeed = 0.02f;
 
     void Start()
     {
@@ -47,7 +49,7 @@ public class MovePiece_4 : MonoBehaviour
         {
             if (other.CompareTag("PuzzlePlaceTag"))
             {
-                if (String.Compare(this.gameObject.GetComponent<MeshRenderer>().material.name.Substring(2, 1), other.gameObject.GetComponent<MeshRenderer>().material.name.Substring(2, 1)) == 0)
+                if (String.Compare(this.gameObject.GetComponent<MeshRenderer>().material.name.Substring(0, 1), other.gameObject.name.Substring(7, 1)) == 0)
                 {
                     this.transform.position = new Vector3(other.transform.position.x, 0.11f, other.transform.position.z);
                     gamemanager.numberofcorrect++;

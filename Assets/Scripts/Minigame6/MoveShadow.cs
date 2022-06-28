@@ -45,7 +45,7 @@ public class MoveShadow : MonoBehaviour
     {
         if (isclick == false)
         {
-            if (other.CompareTag("Object"))
+            if (other.CompareTag("Shadow"))
             {
                 if (String.Compare(this.gameObject.GetComponent<MeshRenderer>().material.name.Substring(2, 1), other.gameObject.GetComponent<MeshRenderer>().material.name.Substring(2, 1)) == 0)
                 {

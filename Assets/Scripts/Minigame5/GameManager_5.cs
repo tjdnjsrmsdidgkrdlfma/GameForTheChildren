@@ -21,7 +21,10 @@ public class GameManager_5 : MonoBehaviour
     {
         if (choose != -1)
         {
-            Check();
+            if(Check()==true)
+            {
+                this.gameObject.GetComponent<End>().EndMessage();
+            }
         }
     }
 
@@ -63,6 +66,8 @@ public class GameManager_5 : MonoBehaviour
         int random;
         int repeattime = 0;
         GameObject Bears = GameObject.Find("Bears");
+
+        yield return new WaitForSeconds(3);
 
         while (true)
         {

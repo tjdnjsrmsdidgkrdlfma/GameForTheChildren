@@ -11,6 +11,8 @@ public class GameManager_2 : MonoBehaviour
     int random;
     public int numberofimages = 0;
     public bool[] TextState = new bool[3];
+    bool[] points = new bool[5] { false, false, false, false, false };
+    bool isfirst=true;
 
     void Start()
     {
@@ -26,8 +28,21 @@ public class GameManager_2 : MonoBehaviour
             PutText();
             SetPosition();
             ActiveScript();
+            if(isfirst==true)
+            {
+                isfirst = false;
+            }
+            else
+            {
+                SetPoint();
+            }
             repeattime++;
             TextState = Enumerable.Repeat(false, 3).ToArray();
+        }
+        if (repeattime == maxrepeattime && CheckState())
+        {
+            SetPoint();
+            this.GetComponent<End>().EndMessage();
         }
     }
 
@@ -89,5 +104,22 @@ public class GameManager_2 : MonoBehaviour
         {
             return false;
         }
+    }
+
+    void SetPoint()
+    {
+        int i;
+
+        for (i = 0; i < 5; i++)
+        {
+            if (points[i] == false)
+            {
+                GameObject.Find("Point (" + i + ")").GetComponent<Image>().material = Resources.Load("Materials/PuzzlePiece") as Material;
+                points[i] = true;
+                break;
+            }
+        }
+
+        return;
     }
 }

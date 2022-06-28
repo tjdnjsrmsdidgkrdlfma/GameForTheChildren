@@ -20,19 +20,19 @@ public class ControlButton : MonoBehaviour
 
     }
 
-    public void LeftButton()
+    public void RightButton()
     {
-        StartCoroutine(MoveToLeft());
+        StartCoroutine(MoveToRight());
 
         return;
     }
 
-    IEnumerator MoveToLeft()
+    IEnumerator MoveToRight()
     {
         int firstx = Convert.ToInt32(Object.GetComponent<RectTransform>().anchoredPosition.x);
         int realx = Convert.ToInt32(Object.GetComponent<RectTransform>().anchoredPosition.x);
 
-        if (firstx <= -7200 || ismoving == true)
+        if (firstx <= -12000 || ismoving == true)
         {
             yield break;
         }
@@ -55,14 +55,14 @@ public class ControlButton : MonoBehaviour
         yield break;
     }
 
-    public void RightButton()
+    public void LeftButton()
     {
-        StartCoroutine(MoveToRight());
+        StartCoroutine(MoveToLeft());
 
         return;
     }
 
-    IEnumerator MoveToRight()
+    IEnumerator MoveToLeft()
     {
         int firstx = Convert.ToInt32(Object.GetComponent<RectTransform>().anchoredPosition.x);
         int realx = Convert.ToInt32(Object.GetComponent<RectTransform>().anchoredPosition.x);

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PuzzlePlaceTag
   - Object
+  - Shadow
   layers:
   - Default
   - TransparentFX

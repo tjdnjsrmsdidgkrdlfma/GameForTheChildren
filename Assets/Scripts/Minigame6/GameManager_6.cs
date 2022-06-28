@@ -24,7 +24,7 @@ public class GameManager_6 : MonoBehaviour
     {
         if(CheckSuccess()==true)
         {
-            Debug.Log("Correct");
+            this.gameObject.GetComponent<End>().EndMessage();
         }
     }
 
