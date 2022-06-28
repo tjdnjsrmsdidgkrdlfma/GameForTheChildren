@@ -49,6 +49,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -105,8 +107,6 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -179,8 +179,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -251,8 +249,6 @@ ScriptsOnlyBuild:
     - Class: 65
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -325,8 +321,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -342,7 +336,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2230}
     - Class: 114
+      Script: {instanceID: 2330}
+    - Class: 114
       Script: {instanceID: 2476}
+    - Class: 114
+      Script: {instanceID: 2654}
     - Class: 114
       Script: {instanceID: 2674}
     - Class: 114
@@ -389,8 +387,6 @@ ScriptsOnlyBuild:
     - Class: 64
       Script: {instanceID: 0}
     - Class: 81
-      Script: {instanceID: 0}
-    - Class: 89
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
@@ -463,8 +459,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -524,6 +518,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -544,6 +540,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 2654}
     - Class: 114
       Script: {instanceID: 2734}
+    - Class: 114
+      Script: {instanceID: 2934}
     - Class: 114
       Script: {instanceID: 3374}
     - Class: 115
@@ -1095,4 +1093,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Minigame4.unity
   - Assets/Scenes/Minigame5.unity
   - Assets/Scenes/Minigame6.unity
-  playerPath: C:/Users/werwer/Desktop/please.apk
+  playerPath: C:/Users/werwer/Desktop/plz.apk
